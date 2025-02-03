@@ -4,6 +4,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 @Entity
 public class Employee {
 @Id
@@ -12,9 +15,12 @@ public class Employee {
     private String name;
     private String role;
 
+    public static final Logger logger= LogManager.getLogger(Employee.class);
+
     public Employee(String name, String role) {
         this.name = name;
         this.role = role;
+        logger.trace("create employee ....");
     }
 
     public Employee() {
